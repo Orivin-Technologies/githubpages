@@ -12,13 +12,22 @@
 <body>
     <header>
         <nav>
-            <div class="logo">Orivin Technologies</div>
-            <ul>
-                <li><a href="#home">Home</a></li>
-                <li><a href="#services">Services</a></li>
-                <li><a href="#industries">Industries</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
+            <div class="logo">
+                <img src="images/orivin.png" alt="Orivin Technologies">
+            </div>
+            <div class="hamburger-menu">
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
+            </div>
+            <div class="overlay-nav">
+                <div class="overlay-content">
+                    <a href="#home" class="nav-link">Home</a>
+                    <a href="#services" class="nav-link">Services</a>
+                    <a href="#industries" class="nav-link">Industries</a>
+                    <a href="#contact" class="nav-link">Contact</a>
+                </div>
+            </div>
         </nav>
     </header>
 
@@ -91,11 +100,13 @@
                 <div class="contact-details">
                     <div class="contact-item">
                         <span class="contact-label">Email</span>
-                        <span class="contact-value">contact@orivin.com</span>
+                        <span class="contact-value">orivintechnologies@gmail.com</span>
                     </div>
                     <div class="contact-item">
                         <span class="contact-label">Location</span>
-                        <span class="contact-value">Mumbai, India</span>
+                        <span class="contact-value">A 205 Samruddhi Complex<br>Gotri Road, Vadodara, Gujarat, India 390021</span><br><br>
+                        <span class="contact-label">GSTIN</span>
+                        <span class="contact-value">24BHVPC6775P1ZE Orivin Technologies</span>
                     </div>
                 </div>
             </div>
@@ -138,5 +149,32 @@
     <footer>
         <p>&copy; 2025 Orivin Technologies. All rights reserved.</p>
     </footer>
+
+    <!-- jQuery CDN -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script>
+    $(function() {
+        // Smooth scrolling
+        $('a[href^="#"]').on('click', function(e) {
+            var target = $($(this).attr('href'));
+            if (target.length) {
+                e.preventDefault();
+                $('html, body').animate({
+                    scrollTop: target.offset().top - 80
+                }, 700);
+                
+                // Close the menu if it's open
+                $('.hamburger-menu').removeClass('active');
+                $('.overlay-nav').removeClass('active');
+            }
+        });
+        
+        // Hamburger menu toggle
+        $('.hamburger-menu').on('click', function() {
+            $(this).toggleClass('active');
+            $('.overlay-nav').toggleClass('active');
+        });
+    });
+    </script>
 </body>
 </html> 
